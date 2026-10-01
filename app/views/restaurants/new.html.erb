@@ -1,0 +1,38 @@
+<h1>new Restaurant</h1>
+
+<%= form_with model: @restaurant do|form|%>
+
+<div>
+    <%= form.label :name%>
+    <%= form.text_field :name%>
+</div>
+
+<div>
+    <%= form.label :description%>
+    <%= form.text_area :description%>
+</div>
+
+<div>
+    <%= form.label :address%>
+    <%= form.text_field :address%>
+</div>
+
+<div>
+    <%= form.label :phone%>
+    <%= form.text_field :phone%>
+</div>
+
+<div>
+    <%= form.label :rating%>
+    <%= form.number_field :rating ,step: 0.1%>
+</div>
+
+<div>
+    <%= form%>
+</div>
+
+<div>
+    <%= form.submit "create restaurant"%>
+</div>
+
+<%end%>

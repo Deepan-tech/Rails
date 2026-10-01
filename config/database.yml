@@ -1,0 +1,21 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: aximsoft
+  password: Axims0ft123
+  host: localhost
+  port: 5432
+  
+development:
+  <<: *default
+  database: restaurant_app_development
+
+test:
+  <<: *default
+  database: restaurant_app_test
+
+production:
+  <<: *default
+  database: restaurant_app_production
+ 
