@@ -18,8 +18,6 @@ class RestaurantsController < ApplicationController
 
     if @restaurant.save
       redirect_to restaurant_path(@restaurant)
-    else
-      render :new, status: :unprocessable_entity
     end
   end
 
@@ -31,26 +29,19 @@ class RestaurantsController < ApplicationController
     @restaurant = Restaurant.find(params[:id])
     if @restaurant.update(restaurant_params)
       redirect_to restaurant_path(@restaurant)
-    else
-      render :edit, status: :unprocessable_entity
     end
   end
 
   def destroy
-  @restaurant = Restaurant.find(params[:id])
-  @restaurant.destroy
-  redirect_to restaurants_path
-end
+    @restaurant = Restaurant.find(params[:id])
+    @restaurant.destroy
+    redirect_to restaurants_path
+  end
 
   private
 
   def restaurant_params
     params.require(:restaurant).permit(
-      :name,
-      :description,
-      :address,
-      :phone,
-      :rating
-    )
+      :name, :description, :address, :phone, :rating, :Pincode)
   end
 end
